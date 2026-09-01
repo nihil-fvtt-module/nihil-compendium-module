@@ -42,7 +42,7 @@ const hpByCr = {
   30: { normal: 570, elite: 975, boss: 1700 },
 };
 
-test('common monster pack declares the three CR HP template tiers', async () => {
+test('common creature packs are grouped under the NCM compendium hierarchy', async () => {
   const manifest = JSON.parse(
     await readFile(path.join(repositoryRoot, 'module.json'), 'utf8'),
   );
@@ -50,7 +50,7 @@ test('common monster pack declares the three CR HP template tiers', async () => 
 
   assert.deepEqual(pack, {
     name: 'common-monsters',
-    label: '공통 몬스터',
+    label: '액터',
     path: 'packs/common-monsters',
     type: 'Actor',
     system: 'dnd5e',
@@ -59,6 +59,55 @@ test('common monster pack declares the three CR HP template tiers', async () => 
       ASSISTANT: 'OWNER',
     },
   });
+  assert.deepEqual(
+    manifest.packs.filter(({ name }) => name !== 'common-monsters'),
+    [
+      {
+        name: 'common-feats',
+        label: '피트',
+        path: 'packs/common-feats',
+        type: 'Item',
+        system: 'dnd5e',
+        ownership: {
+          PLAYER: 'NONE',
+          ASSISTANT: 'OWNER',
+        },
+      },
+      {
+        name: 'common-items',
+        label: '아이템',
+        path: 'packs/common-items',
+        type: 'Item',
+        system: 'dnd5e',
+        ownership: {
+          PLAYER: 'NONE',
+          ASSISTANT: 'OWNER',
+        },
+      },
+    ],
+  );
+  assert.deepEqual(manifest.packFolders, [
+    {
+      name: 'NCM',
+      sorting: 'a',
+      packs: [],
+      folders: [
+        {
+          name: '공통 데이터',
+          sorting: 'a',
+          packs: [],
+          folders: [
+            {
+              name: '크리처',
+              sorting: 'a',
+              packs: ['common-monsters', 'common-feats', 'common-items'],
+              folders: [],
+            },
+          ],
+        },
+      ],
+    },
+  ]);
   assert.equal(Object.keys(hpByCr).length, 30);
   assert.deepEqual(hpByCr[1], { normal: 25, elite: 45, boss: 80 });
   assert.deepEqual(hpByCr[15], { normal: 260, elite: 430, boss: 775 });
