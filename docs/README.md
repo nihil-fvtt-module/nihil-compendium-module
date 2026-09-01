@@ -21,3 +21,10 @@ Foundry 문서에서 에셋을 참조할 때는 `modules/nihil-compendium-module
 ## 컨펜디움 팩
 
 실제 팩 생성과 `module.json` 등록 방법은 [packs/README.md](../packs/README.md)를 따른다.
+
+## Foundry VTT 13.351 검증
+
+- [ ] `nihil-compendium-module` 폴더를 Foundry 사용자 데이터의 `Data/modules/` 아래에 둔다.
+- [ ] D&D5e 5.2.4 월드를 열고 모듈 관리에서 `Nihil Compendium Module`을 활성화한다.
+- [ ] 콘솔에 매니페스트 또는 시스템 호환 오류가 없는지 확인한다.
+- [ ] Module Maker로 팩 하나를 만들고, 그것이 Compendium 탭에 표시되는지 확인한다.
