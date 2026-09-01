@@ -1,0 +1,32 @@
+{
+  "id": "nihil-compendium-module",
+  "title": "Nihil Compendium Module",
+  "description": "D&D5e 공통 및 룩스테라 전용 컨펜디움을 위한 개인 콘텐츠 모듈입니다.",
+  "authors": [
+    {
+      "name": "nihil"
+    }
+  ],
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13.351"
+  },
+  "system": [
+    "dnd5e"
+  ],
+  "relationships": {
+    "systems": [
+      {
+        "id": "dnd5e",
+        "type": "system",
+        "compatibility": {
+          "minimum": "5.2.4",
+          "verified": "5.2.4"
+        }
+      }
+    ]
+  },
+  "packs": [],
+  "packFolders": []
+}
