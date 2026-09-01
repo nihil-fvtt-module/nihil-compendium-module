@@ -63,7 +63,8 @@ nihil-compendium-module/
 
 ## 팩 표시와 접근 규칙
 
-- `module.json`의 `packFolders`는 `공통`과 `룩스테라`를 최상위 폴더로 표시한다.
+- 초기 골격의 `module.json`은 `packs`와 `packFolders`를 빈 배열로 둔다. 실제 팩은 Module Maker가 생성한 뒤에만 매니페스트에 등록한다.
+- 각 실제 팩을 등록할 때 `module.json`의 `packFolders`에 `공통` 또는 `룩스테라` 최상위 폴더를 기록한다.
 - 초기 팩은 GM과 보조 GM이 편집할 수 있고 플레이어에게는 표시하지 않는다.
 - 룩스테라 저널·씬의 공개 여부는 모듈 전역 설정이 아니라 각 월드에서 필요할 때 조정한다.
 
